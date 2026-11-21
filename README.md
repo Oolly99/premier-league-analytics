@@ -1,92 +1,39 @@
-# Premier League Historical Data Analysis (1992–2026)
+# Premier League Performance Analytics
 
-Analyzing 33 seasons of Premier League history using Python 
-web scraping and Microsoft Power BI dashboards.
+How many points does it take to win the Premier League, finish in the top four, or avoid relegation? This project uses historical league tables to compare those outcomes across seasons.
 
----
+The historical analysis covers **33 completed seasons, from 1992–93 to 2024–25**, with **666 club-season records**. The original dataset includes a partial 2025–26 snapshot, which the analysis excludes.
 
-## Project Overview
+## Key findings
 
-This project collects, cleans, and analyzes Premier League 
-season data scraped from Wikipedia. It explores questions 
-around title races, record-breaking champion performances, 
-and historical runner-up patterns.
+| Finding | Result |
+| --- | --- |
+| Closest title race by points | Manchester City and Manchester United both finished with **89 points** in 2011–12. Manchester City won on goal difference. |
+| Highest champion points total | Manchester City earned **100 points** in 2017–18. |
+| Highest runner-up points total | Liverpool finished second with **97 points** in 2018–19, one point behind Manchester City. |
+| Most runner-up finishes in the analysis | Arsenal finished second **9 times**. |
 
-**Key questions explored:**
-- Which clubs have finished as runners-up the most times?
-- What are the tightest title races in Premier League history?
-- Which seasons produced the highest champion point totals?
-- What does it take on average to win the title vs. just miss out?
+## What the analysis measures
 
----
+- **Title race:** first- and second-place points, the gap between them, and title and runner-up finishes by club.
+- **Top-four race:** fourth-place points and the gap between fourth and fifth.
+- **Relegation survival:** 17th-place points and the gap between 17th and 18th, starting in 1995–96 when the league moved to 20 clubs.
 
-## Tools and Libraries
+The notebook reports actual point totals and uses points per match multiplied by 38 where comparisons need to account for the league's early 42-match seasons. It includes charts and exports summary tables for Power BI.
 
-| Tool | Purpose |
-|------|---------|
-| Python — requests, BeautifulSoup | Web scraping from Wikipedia |
-| Python — pandas | Data cleaning and transformation |
-| Python — Plotly | Exploratory visualization |
-| Microsoft Power BI | Final dashboards |
+## Notebooks and data
 
----
+| Notebook | Purpose |
+| --- | --- |
+| [Data extraction](premier_League_data_extraction.ipynb) | Collects league tables from Wikipedia using Requests and Beautiful Soup. |
+| [Data cleaning and analysis](premier_league_competitiveness_project_clean.ipynb) | Uses pandas, NumPy, and Matplotlib to clean the standings, calculate season metrics, create charts, and export summary CSVs. |
 
-## Project Files
-
-| File | Description |
-|------|-------------|
-| `premier_League_data_extraction.ipynb` | Scrapes raw data from Wikipedia |
-| `premier_league_competitiveness_project_clean.ipynb` | Cleans data and runs the full analysis |
-
----
-
-## How to Run
-
-1. Clone this repository or download the files
-2. Install the required libraries:
+To reproduce the analysis, install the dependencies in a Python environment with Jupyter:
 
 ```bash
-pip install requests beautifulsoup4 pandas plotly
+pip install jupyter requests beautifulsoup4 pandas numpy matplotlib
 ```
 
-3. Run `premier_League_data_extraction.ipynb` first to collect the data
-4. Then run `premier_league_competitiveness_project_clean.ipynb` for the full analysis
+Run the extraction notebook first. Update its CSV export path and the analysis notebook's CSV input path so they point to the same local file. Then run the analysis notebook from top to bottom. To reproduce the figures above, use the same completed-season cutoff of 2024–25.
 
----
-
-## Key Findings
-
-- **Tightest title race ever** — 2011–12: Man City and Man 
-  United both finished on 89 points. The title was decided 
-  on goal difference alone.
-
-- **Most runner-up finishes** — Arsenal (9 times), more than 
-  any other club in Premier League history.
-
-- **All-time points record** — Manchester City's 100-point 
-  season in 2017–18.
-
-- **Strongest losing season** — Liverpool's 97-point runner-up 
-  finish in 2018–19. That total would have won the title in 
-  almost any other season.
-
----
-
-## Dashboard Previews
-
-*(Screenshots will be added here)*
-
----
-
-## About
-
-**Olaoluwa** — Marine Science & Technology graduate 
-transitioning into Data Analytics.
-
-Skills: Python · SQL · Microsoft Excel · Power BI
-
-[LinkedIn Profile](www.linkedin.com/in/bamgbose-olaoluwa-4a20a2290)
-
----
-
-*Data source: Wikipedia | Analysis period: 1992–93 to 2025–26*
+**Olaoluwa Bamgbose** · Marine Science and Technology graduate working with Python, SQL, Excel, and Power BI. [LinkedIn](https://www.linkedin.com/in/bamgbose-olaoluwa-4a20a2290/)
